@@ -1,0 +1,29 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Handfaker", "Handfaker\Handfaker.csproj", "{FE329418-2FAF-4CCF-9596-E7F26F86220A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Handfaker.Core", "Handfaker.Core\Handfaker.Core.csproj", "{B2DD4051-6126-4212-8329-3732466D894C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Handfaker.Driver", "Handfaker.Console\Handfaker.Driver.csproj", "{BF59CA00-34BC-457D-A7F0-41726037D80E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FE329418-2FAF-4CCF-9596-E7F26F86220A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE329418-2FAF-4CCF-9596-E7F26F86220A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE329418-2FAF-4CCF-9596-E7F26F86220A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE329418-2FAF-4CCF-9596-E7F26F86220A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B2DD4051-6126-4212-8329-3732466D894C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2DD4051-6126-4212-8329-3732466D894C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2DD4051-6126-4212-8329-3732466D894C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2DD4051-6126-4212-8329-3732466D894C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF59CA00-34BC-457D-A7F0-41726037D80E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF59CA00-34BC-457D-A7F0-41726037D80E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF59CA00-34BC-457D-A7F0-41726037D80E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF59CA00-34BC-457D-A7F0-41726037D80E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
