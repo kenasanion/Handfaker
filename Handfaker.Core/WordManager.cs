@@ -32,28 +32,76 @@ namespace Handfaker.Core
                 var paragraphs = body.Descendants<Paragraph>().ToList();
                 foreach (var paragraph in paragraphs)
                 {
-                    Run previousRun = null;
-
-                    foreach (var run in paragraph.Descendants<Run>())
+                    switch (replaceType)
                     {
-                        var previousText = run.GetFirstChild<Text>().Text;
-                        previousRun = run;
-
-                        Run newRun = new Run();
-                        Text textRun = new Text() { Text = previousText };
-
-                        int index = rand.Next(0, 2);
-                        var fontRun = Fonts[index].CloneNode(true);
-
-                        var rPr = new RunProperties();
-                        rPr.Append(fontRun);
-
-                        if (newRun != null)
-                            run.ReplaceChild<RunProperties>(rPr, run.GetFirstChild<RunProperties>());
+                        case ReplaceType.Paragraph:
+                            ExtractPerParagraph(rand, paragraph);
+                            break;
+                        case ReplaceType.Letter:
+                            ExtractPerLetter(rand, paragraph);
+                            break;
+                        default:
+                            throw new Exception("Replace type is not supported.");
                     }
                 }
 
                 ApplyDocumentChanges(doc);
+            }
+        }
+
+        private void ExtractPerParagraph(Random rand, Paragraph paragraph)
+        {
+            Run previousRun = null;
+
+            foreach (var run in paragraph.Descendants<Run>())
+            {
+                if (run.GetFirstChild<Text>() != null)
+                {
+                    var previousText = run.GetFirstChild<Text>().Text;
+                    previousRun = run;
+
+                    Run newRun = new Run();
+                    Text textRun = new Text() { Text = previousText };
+
+                    int index = rand.Next(0, 2);
+                    var fontRun = Fonts[index].CloneNode(true);
+
+                    var rPr = new RunProperties();
+                    rPr.Append(fontRun);
+
+                    if (newRun != null)
+                        run.ReplaceChild<RunProperties>(rPr, run.GetFirstChild<RunProperties>());
+                }
+            }
+        }
+
+        private void ExtractPerLetter(Random rand, Paragraph paragraph)
+        {
+            Run previousRun = null;
+
+            foreach (var run in paragraph.Descendants<Run>())
+            {
+                var previousText = run.GetFirstChild<Text>().Text;
+                previousRun = run;
+
+                if (!string.IsNullOrEmpty(previousText))
+                    run.GetFirstChild<Text>().Text = string.Empty;
+
+                foreach (char letter in previousText)
+                {
+                    Run newRun = new Run();
+                    Text textRun = new Text() { Text = letter.ToString() };
+
+                    int index = rand.Next(0, 2);
+                    var fontRun = Fonts[index].CloneNode(true);
+
+                    var rPr = new RunProperties();
+                    rPr.Append(textRun);
+                    rPr.Append(fontRun);
+
+                    if (newRun != null)
+                        run.AppendChild<RunProperties>(rPr);
+                }
             }
         }
 

@@ -8,8 +8,8 @@ namespace Handfaker.Driver
     {
         static void Main(string[] args)
         {
-            WordManager wordManager = new WordManager(@"/Users/kenasanion/Projects/Handfaker/Data/Lorem Ipsum.docx");
-            wordManager.UpdateTextFonts(new List<string>() { "Codizal Law", "Arial", "Codizal Law" }, ReplaceType.Letter);
+            WordManager wordManager = new WordManager(@"/Users/kenasanion/Projects/Handfaker/Data/cases-corpo-converted.docx");
+            wordManager.UpdateTextFonts(new List<string>() { "Codizal Law One", "Codizal Law Two", "Codizal Law Three" }, ReplaceType.Paragraph);
         }
     }
 }
